@@ -1,4 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+    type Dispatch,
+    type SetStateAction,
+} from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import { parseBlob } from 'music-metadata';
 import { type AudioFile } from '../types/metadata.ts';
@@ -16,6 +23,8 @@ interface AudioPlayerProps {
     audioFiles?: AudioFile[];
     audioFilesIndex?: number;
     setSelectedAudioFile?: (file: File) => void;
+    isPlaying: boolean;
+    setIsPlaying: Dispatch<SetStateAction<boolean>>;
 }
 
 export function AudioPlayer({
@@ -24,6 +33,8 @@ export function AudioPlayer({
     audioFiles,
     setSelectedAudioFile,
     audioFilesIndex,
+    isPlaying,
+    setIsPlaying,
 }: AudioPlayerProps) {
     const waveformRef = useRef<HTMLDivElement>(null);
     const wavesurfer = useRef<WaveSurfer | null>(null);
@@ -32,7 +43,6 @@ export function AudioPlayer({
         {},
     );
     const [cover, setCover] = useState<string | null>(null);
-    const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [totalTime, setTotalTime] = useState(0);
     const [loopAudioFile, setLoopAudioFile] = useState(false);
@@ -40,7 +50,7 @@ export function AudioPlayer({
     const handlePlayPause = useCallback(() => {
         wavesurfer.current?.playPause();
         setIsPlaying((prev) => !prev);
-    }, []);
+    }, [setIsPlaying]);
 
     const handleLoop = () => {
         if (wavesurfer.current) {
@@ -143,7 +153,7 @@ export function AudioPlayer({
             URL.revokeObjectURL(url);
             setIsPlaying(false);
         };
-    }, [audioFile, audioFiles, audioFilesIndex, setSelectedAudioFile]);
+    }, [audioFile, audioFiles, audioFilesIndex, setSelectedAudioFile, setIsPlaying]);
 
     return (
         <section

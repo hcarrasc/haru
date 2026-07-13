@@ -8,6 +8,7 @@ import music_placeholder from '../assets/music_placeholder.png';
 export default function App() {
     const [audioFiles, setAudioFiles] = useState<AudioFile[]>([]);
     const [selectedAudioFile, setSelectedAudioFile] = useState<File | null>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [configsModalOpen, setConfigsModalOpen] = useState(true);
 
     const sortByArtist = () => {
@@ -83,6 +84,8 @@ export default function App() {
                 audioFiles={audioFiles}
                 audioFilesIndex={audioFiles.findIndex((af) => af.file === selectedAudioFile)}
                 setSelectedAudioFile={setSelectedAudioFile}
+                isPlaying={isPlaying}
+                setIsPlaying={setIsPlaying}
             />
 
             <section className="track-list">
@@ -97,7 +100,15 @@ export default function App() {
                     </thead>
                     <tbody>
                         {audioFiles.map((audioFile, index) => (
-                            <tr key={index} onClick={(e) => handleMp3(e, audioFile.file)}>
+                            <tr
+                                key={index}
+                                onClick={(e) => handleMp3(e, audioFile.file)}
+                                className={
+                                    isPlaying && selectedAudioFile === audioFile.file
+                                        ? 'is-playing'
+                                        : ''
+                                }
+                            >
                                 <td>{index + 1}</td>
                                 <td>
                                     <img

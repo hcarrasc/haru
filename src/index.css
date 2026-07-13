@@ -123,6 +123,10 @@ body {
 .tabla-zebra tbody tr:hover {
     background-color: #000000;
 }
+.tabla-zebra tbody tr.is-playing {
+    background-color: #000000;
+
+}
 .cover-table {
     width: 2.5rem;
     height: 2.5rem;
@@ -182,8 +186,8 @@ body {
         margin-top: 1rem;
     }
     .cover-container img {
-        width: 15rem;
-        height: 15rem;
+        width: 12rem;
+        height: 12rem;
         margin: auto;
     }
     .metadata-container {
@@ -191,10 +195,14 @@ body {
         padding: 1rem;
     }
     .metadata-container h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         text-align: center;
     }
     .controls-container {
         justify-content: center;
+        height: 1.9rem;
+    }
+    .waveform{
+        flex: 1;
     }
 }
