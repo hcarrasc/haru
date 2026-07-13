@@ -1,4 +1,4 @@
-# WAVEFLOW music player
+# HARU Music Player
 
 [![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white&style=flat)](#)
 [![React](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=flat)](#)
@@ -14,8 +14,8 @@ npm run dev
 
 ### Third party libraries
 
--   Wavesurfer
--   Music Metadata
+- Wavesurfer
+- Music Metadata
 
 ### Pull request are allowed
 
