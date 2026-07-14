@@ -124,7 +124,7 @@ export function AudioPlayer({
             waveColor: '#fff',
             progressColor: '#2563eb',
             cursorColor: '#ffff',
-            height: 60,
+            height: 40,
             barWidth: 3,
             barGap: 1,
             barRadius: 2,

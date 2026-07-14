@@ -25,7 +25,7 @@ body {
     top: 0;
     z-index: 1000;
 	display: flex;
-    height: 18rem;
+    height: 16rem;
 }
 .audio-player::before {
     content: "";
@@ -40,7 +40,7 @@ body {
 }
 .cover-container {
     width: auto;
-    height: 18rem;
+    height: 16rem;
     object-fit: contain;
     display: flex;
     align-items: center;
@@ -76,8 +76,8 @@ body {
 }
 
 .btn-control img {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
 }
 .time-container{
     display: flex;
@@ -200,7 +200,11 @@ body {
     }
     .controls-container {
         justify-content: center;
-        height: 1.9rem;
+        height: 1.2rem;
+    }
+    .btn-control img {
+        width: 1.6rem;
+        height: 1.6rem;
     }
     .waveform{
         flex: 1;
