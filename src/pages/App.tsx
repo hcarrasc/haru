@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { parseBlob } from 'music-metadata';
 import { type AudioFile } from '../types/metadata.ts';
 import music_placeholder from '../assets/music_placeholder.png';
+import music_folder from '../assets/music_folder.png';
 
 export default function App() {
     const [audioFiles, setAudioFiles] = useState<AudioFile[]>([]);
@@ -67,14 +68,20 @@ export default function App() {
         <div className="app-container">
             {configsModalOpen && (
                 <ConfigsModal isOpen={configsModalOpen} onClose={() => setConfigsModalOpen(false)}>
-                    <h2>Select your music folder</h2>
-                    <input
-                        className="input-file"
-                        type="file"
-                        webkitdirectory="true"
-                        multiple
-                        onChange={handleFolder}
-                    />
+                    <div className="modal-container">
+                        <h2>Click to select your music</h2>
+                        <label className="imageInput">
+                            <img src={music_folder} alt="Seleccionar imagen" />
+                            <input
+                                className="input-file"
+                                type="file"
+                                webkitdirectory="true"
+                                multiple
+                                onChange={handleFolder}
+                                hidden
+                            />
+                        </label>
+                    </div>
                 </ConfigsModal>
             )}
             <AudioPlayer
