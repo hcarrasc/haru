@@ -84,6 +84,7 @@ body {
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
+    margin-top: -1rem;
 }
 .time{
     font-size: 1rem;
@@ -181,8 +182,8 @@ body {
         justify-content: center;
     }
     .cover-container img {
-        width: 15rem;
-        height: 15rem;
+        width: 11rem;
+        height: 11rem;
         margin: auto;
     }
     .metadata-container {
@@ -195,5 +196,9 @@ body {
     }
     .controls-container {
         justify-content: center;
+    }
+    .controls-container .btn-control img {
+        width: 1.8rem;
+        height: 1.8rem;
     }
 }
